@@ -1,0 +1,11 @@
+# Ignorar contraseñas y variables de entorno
+.env
+
+# Ignorar volcados (dumps) de bases de datos gigantes 
+*.bak
+*.dump
+*backup*.sql
+
+# Ignorar archivos compilados de Python
+__pycache__/
+*.pyc
