@@ -1,11 +1,177 @@
-# Ignorar contraseñas y variables de entorno
+# =============================================================================
+# template-database — .gitignore
+# =============================================================================
+# Prevents accidental commits of local configuration, credentials,
+# generated artifacts, and environment-specific files.
+#
+# IMPORTANT — Intentionally tracked files (do not add these below):
+#   config/database.yml       — database connection reference template
+#   config/environments.yml   — environment configuration reference template
+#   migrations/*.sql          — schema version history, append-only, immutable
+#   schemas/**/.gitkeep       — empty directory structural markers
+#   seeds/**/.gitkeep         — empty directory structural markers
+# =============================================================================
+
+
+# -----------------------------------------------------------------------------
+# Operating Systems
+# -----------------------------------------------------------------------------
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+.fseventsd
+.TemporaryItems
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+
+# -----------------------------------------------------------------------------
+# IDEs and Editors
+# -----------------------------------------------------------------------------
+
+# JetBrains — DataGrip, IntelliJ IDEA, PyCharm
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# Visual Studio Code
+.vscode/
+!.vscode/extensions.json
+
+# Vim / Neovim
+*.swp
+*.swo
+*.swn
+Session.vim
+.netrwhist
+tags
+
+# Emacs
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+.\#*
+
+# Sublime Text
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-workspace
+
+
+# -----------------------------------------------------------------------------
+# Database — Credentials and Local Configuration
+# -----------------------------------------------------------------------------
+
+# Local overrides — real connection values should never be committed
+config/database.local.yml
+config/environments.local.yml
+
+# Environment variable files
 .env
+.env.local
+.env.*.local
+!.env.example
 
-# Ignorar volcados (dumps) de bases de datos gigantes 
-*.bak
+
+# -----------------------------------------------------------------------------
+# Database — Generated and Temporary Files
+# -----------------------------------------------------------------------------
+
+# Dump and backup files
 *.dump
-*backup*.sql
+*.sql.gz
+*.sql.bz2
+*.sql.zip
+*.bak
+*.backup
 
-# Ignorar archivos compilados de Python
+# SQLite local database files
+*.sqlite
+*.sqlite3
+*.db
+*.db3
+*.s3db
+*.sl3
+
+# PostgreSQL local data directory
+pgdata/
+pg_log/
+
+# MySQL local data directory
+mysql_data/
+
+
+# -----------------------------------------------------------------------------
+# Logs
+# -----------------------------------------------------------------------------
+
+*.log
+*.log.*
+logs/
+
+
+# -----------------------------------------------------------------------------
+# Temporary and Cache Files
+# -----------------------------------------------------------------------------
+
+tmp/
+temp/
+.tmp/
+*.tmp
+*.temp
+*.cache
+
+
+# -----------------------------------------------------------------------------
+# Package Managers
+# — Included for projects that add migration tools (Flyway, Liquibase, etc.)
+# -----------------------------------------------------------------------------
+
+# Node.js
+node_modules/
+
+# Python
 __pycache__/
-*.pyc
+*.py[cod]
+.venv/
+venv/
+env/
+*.egg-info/
+
+# Ruby
+.bundle/
+vendor/bundle/
+
+# DBeaver
+.dbeaver/
+
+# DataGrip local metadata
+dataSources/
+dataSources.local.xml
+sqlDataSources.xml
