@@ -119,13 +119,14 @@ which can:
 
 ## Environment-Agnostic Data Seeding
 
-Provides structured seed files such as:
+Provides a seed directory structure separated by environment:
 
 ```text
-seeds/01-base-seed.sql
+seeds/development/
+seeds/testing/
 ```
 
-to generate reproducible development data.
+to generate reproducible data for local development and automated testing.
 
 ---
 
@@ -164,22 +165,23 @@ template-database/
 │   └── erd-diagram.md
 │
 ├── migrations/
-│   ├── 001-init-schema.sql
-│   └── 002-add-verification.sql
+│   ├── 001-initial-schema.sql
+│   └── 002-add-indexes.sql
 │
 ├── schemas/
 │   ├── functions/
 │   ├── tables/
-│   │   ├── 01-users.sql
-│   │   └── 02-profiles.sql
 │   ├── triggers/
 │   └── views/
 │
 ├── scripts/
-│   └── setup.sql
+│   ├── seed.sql
+│   ├── setup.sql
+│   └── teardown.sql
 │
 ├── seeds/
-│   └── 01-base-seed.sql
+│   ├── development/
+│   └── testing/
 │
 ├── .gitignore
 └── README.md
@@ -206,8 +208,8 @@ Chronological schema evolution.
 
 | File | Purpose |
 | --- | --- |
-| `001-init-schema.sql` | Initial schema creation |
-| `002-add-verification.sql` | Example schema modification |
+| `001-initial-schema.sql` | Initial schema creation |
+| `002-add-indexes.sql` | Example schema modification |
 
 ### Rules
 
@@ -223,12 +225,9 @@ Canonical database definition.
 
 ### tables/
 
-Contains table definitions.
+Contains table definitions, one object per file.
 
-| File | Purpose |
-| --- | --- |
-| `01-users.sql` | User table definition |
-| `02-profiles.sql` | Profile table definition |
+This directory is intentionally empty in the template. Table definitions are added here as the project's schema is designed. For a working example of table definitions, see `examples/`.
 
 ### views/
 
@@ -251,16 +250,19 @@ Environment orchestration.
 | File | Purpose |
 | --- | --- |
 | `setup.sql` | Master setup execution file |
+| `seed.sql` | Populates the database with seed data |
+| `teardown.sql` | Drops database objects for a clean reset |
 
 ---
 
 ## seeds/
 
-Development datasets.
+Development and testing datasets, organized by environment.
 
-| File | Purpose |
+| Directory | Purpose |
 | --- | --- |
-| `01-base-seed.sql` | Base testing data |
+| `development/` | Data for local development environments |
+| `testing/` | Data for automated testing environments |
 
 ---
 
@@ -410,12 +412,12 @@ scripts/
 
 # Roadmap
 
-- [ ] Add `example-01-basic-schema`
-- [ ] Add `example-02-relations`
-- [ ] Add `example-03-complex-queries`
+- [x] Add `example-01-basic-schema`
+- [x] Add `example-02-relations`
+- [x] Add `example-03-complex-queries`
+- [x] Add `example-04-postgresql-standard`
 - [ ] Add Mermaid ERD starter examples
 - [ ] Add `scripts/migrate.sh`
-- [ ] Add PostgreSQL-specific setup scripts
 - [ ] Add MySQL-specific setup scripts
 
 ---
