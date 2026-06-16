@@ -1,0 +1,11 @@
+development:
+  debug: true
+  logging: verbose
+
+testing:
+  debug: false
+  logging: minimal
+
+production:
+  debug: false
+  logging: standard
