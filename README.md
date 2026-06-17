@@ -1,459 +1,152 @@
-# template-database
+# Database Fundamentals
 
-> Database project template with schema versioning, seed data, organized DDL, and documentation — for SQL projects that grow predictably and stay maintainable.
+> A structured learning repository covering relational database concepts, data modeling, SQL, normalization, indexing, transactions, and database design fundamentals.
 
 ---
 
 # Purpose
 
-`template-database` provides a structured foundation for database projects that extend beyond a few simple `CREATE TABLE` statements.
+Databases are a fundamental component of modern software systems. Understanding how data is modeled, stored, queried, and maintained is essential for backend development, data analysis, machine learning, and software engineering.
 
-The template introduces three fundamental concepts used in professional database development:
+This repository provides a structured path for learning the theoretical and practical foundations of relational databases.
 
-- **Migrations** — schema version control
-- **Seeds** — reproducible development and testing data
-- **Schemas** — organized DDL separated by object type
-
-The template separates database concerns into distinct areas:
-
-| Concern | Directory |
-| --- | --- |
-| Current database structure | `schemas/` |
-| Schema evolution history | `migrations/` |
-| Development and testing data | `seeds/` |
-| Setup automation | `scripts/` |
-
-This organization mirrors practices used in professional software development environments.
+The focus is on understanding concepts, design principles, and SQL fundamentals rather than a specific database management system.
 
 ---
 
-# When to Use This Template
+# Learning Objectives
 
-## Use `template-database` when:
+By completing this repository, you should be able to:
 
-- The project is primarily focused on database design
-- You need schema version tracking
-- The project contains multiple related tables
-- You need reproducible development or testing data
-- You are learning or demonstrating:
-  - SQL
-  - Entity-Relationship Design (ERD)
-  - Data Modeling
-  - Database Architecture
+* Understand the role of databases in software systems
+* Design relational data models
+* Create and interpret Entity Relationship Diagrams (ERDs)
+* Apply normalization principles
+* Write SQL queries for data definition and manipulation
+* Understand relationships between entities
+* Use joins, aggregations, and subqueries effectively
+* Understand indexing strategies and performance considerations
+* Explain database transactions and ACID properties
+* Analyze common database design patterns and trade-offs
 
 ---
 
-## Do NOT Use `template-database` when:
+# Learning Roadmap
 
-### Backend APIs with a Database
+Recommended study order:
 
-Use:
+1. Introduction to Databases
+2. Relational Database Concepts
+3. Data Modeling
+4. Entity Relationship Diagrams (ERDs)
+5. Normalization
+6. SQL Fundamentals
+7. Data Definition Language (DDL)
+8. Data Manipulation Language (DML)
+9. Relationships and Joins
+10. Aggregations and Grouping
+11. Subqueries
+12. Indexes and Query Optimization
+13. Transactions and ACID
+14. Database Design Best Practices
+15. Practical Examples
+16. Exercises and Challenges
+
+---
+
+# Repository Structure
 
 ```text
-template-backend-api
-```
-
-instead, since it already contains its own database layer structure.
-
-### Simple SQL Practice Exercises
-
-Use:
-
-```text
-db-fundamentals
-```
-
-instead.
-
-### Projects Without Data Persistence
-
-A database template is unnecessary.
-
----
-
-# Use Cases
-
-This template is suitable for:
-
-- SENA database design deliverables
-- Database architecture portfolio projects
-- ERD and normalization demonstrations
-- Independent database planning projects
-- SQL testing environments
-- Query experimentation
-- View development
-- Reporting systems
-- Schema prototyping before application development
-
----
-
-# Features
-
-## Schema Control Structure
-
-Separates:
-
-- Current schema definitions
-- Historical migrations
-
-This allows database evolution to be tracked cleanly over time.
-
----
-
-## Idempotent Setup Scripts
-
-Includes:
-
-```text
-scripts/setup.sql
-```
-
-which can:
-
-- Rebuild the database
-- Recreate objects
-- Execute in the proper order
-- Provide a repeatable environment setup
-
----
-
-## Environment-Agnostic Data Seeding
-
-Provides a seed directory structure separated by environment:
-
-```text
-seeds/development/
-seeds/testing/
-```
-
-to generate reproducible data for local development and automated testing.
-
----
-
-## Documentation Templates
-
-Pre-configured documentation structure inside:
-
-```text
-docs/
-```
-
-including:
-
-- ERD documentation
-- Data dictionary documentation
-
----
-
-## SQL Coding Standards
-
-Includes predefined conventions for:
-
-- Constraints
-- Object naming
-- Structural organization
-- Modern SQL formatting practices
-
----
-
-# Architecture and Structure
-
-```text
-template-database/
-├── docs/
-│   ├── data-dictionary.md
-│   └── erd-diagram.md
+database-fundamentals/
 │
-├── migrations/
-│   ├── 001-initial-schema.sql
-│   └── 002-add-indexes.sql
+├── theory/
 │
-├── schemas/
-│   ├── functions/
-│   ├── tables/
-│   ├── triggers/
-│   └── views/
+├── diagrams/
+│   ├── erd/
+│   └── mermaid/
 │
-├── scripts/
-│   ├── seed.sql
-│   ├── setup.sql
-│   └── teardown.sql
+├── exercises/
+│   ├── beginner/
+│   ├── intermediate/
+│   └── advanced/
 │
-├── seeds/
-│   ├── development/
-│   └── testing/
+├── examples/
+│   ├── ddl/
+│   ├── relationships/
+│   ├── queries/
+│   └── postgresql/
 │
-├── .gitignore
-└── README.md
+├── README.md
+├── CHANGELOG.md
+├── CONTRIBUTING.md
+└── LICENSE
 ```
 
----
+## Directory Overview
 
-# Directory Responsibilities
-
-## docs/
-
-Database architecture documentation.
-
-| File | Purpose |
-| --- | --- |
-| `data-dictionary.md` | Tables, columns, constraints, and data types |
-| `erd-diagram.md` | ERD diagrams or Mermaid representations |
+| Directory  | Purpose                                               |
+| ---------- | ----------------------------------------------------- |
+| theory/    | Concept explanations and learning material            |
+| diagrams/  | ERDs, Mermaid diagrams, and visual learning resources |
+| exercises/ | Practice exercises and database challenges            |
+| examples/  | SQL examples and database design demonstrations       |
 
 ---
 
-## migrations/
+# Study Recommendations
 
-Chronological schema evolution.
+To get the most value from this repository:
 
-| File | Purpose |
-| --- | --- |
-| `001-initial-schema.sql` | Initial schema creation |
-| `002-add-indexes.sql` | Example schema modification |
+1. Learn database concepts before writing complex SQL.
+2. Practice designing data models before implementing them.
+3. Draw ERDs manually to reinforce entity relationships.
+4. Write queries from scratch before reviewing examples.
+5. Focus on understanding why a design works, not just how it is implemented.
+6. Experiment with queries using PostgreSQL or MySQL.
 
-### Rules
-
-- Append only
-- Never rewrite historical migrations
-- Maintain chronological order
-
----
-
-## schemas/
-
-Canonical database definition.
-
-### tables/
-
-Contains table definitions, one object per file.
-
-This directory is intentionally empty in the template. Table definitions are added here as the project's schema is designed. For a working example of table definitions, see `examples/`.
-
-### views/
-
-Virtual query projections.
-
-### functions/
-
-Stored procedures and reusable database logic.
-
-### triggers/
-
-Event-driven database automation.
-
----
-
-## scripts/
-
-Environment orchestration.
-
-| File | Purpose |
-| --- | --- |
-| `setup.sql` | Master setup execution file |
-| `seed.sql` | Populates the database with seed data |
-| `teardown.sql` | Drops database objects for a clean reset |
-
----
-
-## seeds/
-
-Development and testing datasets, organized by environment.
-
-| Directory | Purpose |
-| --- | --- |
-| `development/` | Data for local development environments |
-| `testing/` | Data for automated testing environments |
-
----
-
-# Quick Start
-
-## 1. Initialize the Repository
-
-Use GitHub's **Use this template** button to generate a new repository.
-
-Clone it locally:
-
-```bash
-git clone https://github.com/your-username/your-database-project.git
-
-cd your-database-project
-```
-
----
-
-## 2. Configure Your Database Target
-
-Open your preferred database client.
-
-Examples:
-
-- DBeaver
-- DataGrip
-- PostgreSQL CLI (`psql`)
-- MySQL CLI
-
-Create or connect to a local database instance.
-
----
-
-## 3. Run the Structural Baseline Setup
-
-Execute:
-
-```bash
-psql -U your_user -d your_db -f scripts/setup.sql
-```
-
-Alternatively:
-
-1. Open `scripts/setup.sql`
-2. Connect to the target database
-3. Execute the entire script
-
-Example in DBeaver:
+Recommended progression:
 
 ```text
-Alt + X
+Theory
+   ↓
+Diagrams
+   ↓
+Examples
+   ↓
+Exercises
 ```
-
----
-
-## 4. Verify Database Integrity
-
-Run a validation query:
-
-```sql
-SELECT * FROM users;
-```
-
-Verify:
-
-- Tables were created
-- Constraints exist
-- Seed data was inserted successfully
-
----
-
-# Customization and Scaling Rules
-
-Maintain the following structural contract.
-
-| Element | Scalable? | Notes |
-| --- | --- | --- |
-| `schemas/` directory names | No  | Fixed structure |
-| Files inside `schemas/` | Yes | One object per file |
-| Migration numbering | No  | Always `NNN-description.sql` |
-| Migration content | No  | Never edit after merge |
-| `seeds/` structure | Yes | Environment-specific seeds allowed |
-| `scripts/` | Yes | Additional automation scripts may be added |
-
----
-
-## Fixed Schema Directories
-
-The following directories must remain unchanged:
-
-```text
-schemas/
-├── tables/
-├── views/
-├── functions/
-└── triggers/
-```
-
----
-
-## Migration Convention
-
-Always use:
-
-```text
-001-init-schema.sql
-002-add-users.sql
-003-add-orders.sql
-004-create-reporting-view.sql
-```
-
-Format:
-
-```text
-NNN-description.sql
-```
-
----
-
-## Seed Expansion
-
-Additional environments may be added:
-
-```text
-seeds/
-├── development/
-├── staging/
-└── production/
-```
-
----
-
-## Script Expansion
-
-Additional automation scripts may be created:
-
-```text
-scripts/
-├── setup.sql
-├── backup.sql
-├── analyze.sql
-└── restore.sql
-```
-
----
-
-# Roadmap
-
-- [x] Add `example-01-basic-schema`
-- [x] Add `example-02-relations`
-- [x] Add `example-03-complex-queries`
-- [x] Add `example-04-postgresql-standard`
-- [ ] Add Mermaid ERD starter examples
-- [ ] Add `scripts/migrate.sh`
-- [ ] Add MySQL-specific setup scripts
 
 ---
 
 # References
 
-## Database Systems
+## Official Documentation
 
-- PostgreSQL Documentation
-- DBeaver – Universal Database Tool
+* PostgreSQL Documentation
+* MySQL Documentation
+* SQL Language Reference
+* Mermaid Documentation
+
+## Recommended Books
+
+* Database System Concepts
+* Fundamentals of Database Systems
+* SQL Antipatterns
+* Designing Data-Intensive Applications
+
+## Related Repositories
+
+* programming-fundamentals
+* backend-fundamentals
+* software-engineering-fundamentals
+* backend-projects
+* data-analysis-fundamentals
+* system-design-fundamentals
 
 ---
 
-## Database Design
+# Repository Type
 
-- Database Normalization
-- Mermaid ERD Diagrams
+**Layer:** Knowledge
 
----
-
-## SQL Standards
-
-- SQL Style Guide – Simon Holywell
-
----
-
-## Version Control
-
-- Conventional Commits
-
----
-
-# Ecosystem
-
-Part of the sxiks project ecosystem.
-
-**Type:** Template
-
-**Domain:** Database
+**Domain:** Database Fundamentals
