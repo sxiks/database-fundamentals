@@ -1,77 +1,71 @@
-# Beginner Exercises
+# Database Exercises
 
-## Goal
+This directory contains practical exercises organized by difficulty level.
 
-Practice the foundational SQL concepts required to create and query relational databases.
+The goal is not only to write SQL queries, but to progressively develop the skills required to design, build, and maintain relational databases.
 
-## Structure
+## Learning Progression
 
-### sql-fundamentals
+### Beginner
 
-#### tables
+Focuses on learning the SQL language and basic data manipulation.
 
 Topics:
 
-- CREATE TABLE
-- Data types
-- PRIMARY KEY
-- NOT NULL
-- UNIQUE
+- Creating tables
+- Inserting records
+- Updating data
+- Deleting data
+- Basic filtering
+- Sorting results
+- Aggregate functions
 
-Learning Outcome:
+Outcome:
 
-- Create well-defined relational tables.
+- Understand how relational data is stored and manipulated.
 
 ---
 
-#### insert-data
+### Intermediate
+
+Focuses on relational thinking and database design.
 
 Topics:
 
-- INSERT INTO
-- Multiple inserts
-- Sample datasets
+- Entity Relationship Modeling (ERD)
+- Relationships
+- Joins
+- Aggregations
+- Normalization
+- Application connections
 
-Learning Outcome:
+Outcome:
 
-- Populate tables with valid data.
+- Design normalized relational databases and write multi-table queries.
 
 ---
 
-#### basic-queries
+### Advanced
+
+Focuses on performance, scalability, and production concepts.
 
 Topics:
 
-- SELECT
-- WHERE
-- ORDER BY
-- LIMIT
+- Indexing
+- Query Optimization
+- Transactions
+- Assessments
 
-Learning Outcome:
+Outcome:
 
-- Retrieve and filter data efficiently.
+- Understand how databases behave in real-world systems and how to improve performance.
 
 ---
 
-#### aggregate-functions
+## Recommended Order
 
-Topics:
+1. beginner/
+2. intermediate/
+3. advanced/
 
-- COUNT
-- AVG
-- SUM
-- MIN
-- MAX
-
-Learning Outcome:
-
-- Generate simple reports using aggregate functions.
-
-## Completion Criteria
-
-Students should be able to:
-
-- Create tables
-- Insert data
-- Execute basic queries
-- Use aggregate functions
+Exercises should follow the same progression as the theory and examples sections.
