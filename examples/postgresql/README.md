@@ -1,13 +1,26 @@
-# Example 04: PostgreSQL Standard
+# PostgreSQL Implementation
 
-Modern relational implementation using PostgreSQL. This folder demonstrates syntax differences and best practices for the secondary engine.
+This section demonstrates how the concepts learned throughout the repository are implemented using PostgreSQL.
 
-## Configuration Steps for Debian
-1. Install PostgreSQL: `sudo apt update && sudo apt install postgresql postgresql-contrib`
-2. Start service: `sudo systemctl start postgresql`
-3. Switch to postgres user: `sudo -i -u postgres`
-4. Create user and DB: 
-   ```bash
-   createuser --interactive
-   createdb academic_pg_db
-5. Connect via DBeaver using port 5432.
+The goal is not to learn SQL from scratch, but to understand PostgreSQL-specific features and best practices.
+
+## Topics
+
+- PostgreSQL setup
+- SERIAL columns
+- Constraints
+- Foreign keys
+- Triggers
+- PostgreSQL syntax differences
+- Sample academic database
+
+## Recommended Order
+
+1. Create Database
+2. Create Tables
+3. Insert Data
+4. Constraints
+5. Triggers
+6. Relationships
+7. Queries
+8. Complete Schema

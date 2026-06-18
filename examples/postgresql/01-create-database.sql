@@ -1,0 +1,1 @@
+CREATE DATABASE academic_pg_db;
