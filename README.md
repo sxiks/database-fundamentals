@@ -14,21 +14,23 @@ The focus is on understanding concepts, design principles, and SQL fundamentals 
 
 ---
 
-# Learning Objectives
+## Learning Objectives
 
-By completing this repository, you should be able to:
+This repository focuses on the database fundamentals required to design relational databases correctly.
 
-* Understand the role of databases in software systems
-* Design relational data models
-* Create and interpret Entity Relationship Diagrams (ERDs)
-* Apply normalization principles
-* Write SQL queries for data definition and manipulation
-* Understand relationships between entities
-* Use joins, aggregations, and subqueries effectively
-* Understand indexing strategies and performance considerations
-* Explain database transactions and ACID properties
-* Analyze common database design patterns and trade-offs
+Core Topics:
 
+- Data Modeling
+- SQL Fundamentals
+- Normalization
+- Indexing
+- Complex Queries
+
+Complementary Topics:
+
+- Transactions
+- Data Dictionaries
+- Database Migrations
 ---
 
 # Learning Roadmap
