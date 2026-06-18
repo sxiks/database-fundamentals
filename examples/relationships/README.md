@@ -1,11 +1,34 @@
-# Example 02: Relations (MySQL)
+# Relationships Examples
 
-Implements Foreign Keys to establish a Many-to-Many relationship using a junction table.
+This section introduces the most common relationships used in relational database design.
 
-## Requirements
-Requires the `students` table from `example-01-basic-schema` to be executed first.
+## Learning Objectives
 
-## Execution
-1. Open DBeaver.
-2. Ensure `academic_db` is selected.
-3. Execute `schema.sql`.
+After completing these examples, you should be able to:
+
+- Create one-to-one relationships
+- Create one-to-many relationships
+- Create many-to-many relationships
+- Define foreign key constraints
+- Understand referential integrity
+- Use cascading actions safely
+
+## Files
+
+| File | Topic |
+|--------|--------|
+| 01-one-to-one.sql | One-to-One relationship |
+| 02-one-to-many.sql | One-to-Many relationship |
+| 03-many-to-many.sql | Many-to-Many relationship |
+| 04-foreign-key-constraints.sql | Foreign key constraints |
+| 05-cascade-delete.sql | ON DELETE CASCADE |
+| 06-cascade-update.sql | ON UPDATE CASCADE |
+
+## Recommended Order
+
+1. One-to-One
+2. One-to-Many
+3. Many-to-Many
+4. Foreign Keys
+5. Cascade Delete
+6. Cascade Update

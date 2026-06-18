@@ -1,0 +1,5 @@
+CREATE TABLE students (
+    id INT PRIMARY KEY,
+    is_active BOOLEAN DEFAULT TRUE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

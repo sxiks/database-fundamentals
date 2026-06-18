@@ -68,13 +68,17 @@ The first three examples are written to be as portable as possible across SQL en
 ## Recommended Study Order
 
 ```text
-ddl
-        ↓
-relationships
-        ↓
-queries
-        ↓
-example-postgresql
+DDL
+↓
+Relationships
+↓
+DML
+↓
+Queries
+↓
+PostgreSQL Example
+↓
+Exercises
 ```
 
 Each example's own `README.md` contains the specific objectives, the SQL itself, and notes on what to look for. This index exists to orient — the detail lives one level down.
