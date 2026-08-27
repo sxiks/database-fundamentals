@@ -1,5 +1,5 @@
 -- ============================================================
--- CLASS PRACTICE: Employee Table CRUD Operations
+-- CLASS PRACTICE: Employee Table / CRUD Operations
 -- Date: [add date]
 -- Description: Practice with CREATE, ALTER, INSERT, UPDATE,
 --              DELETE, SELECT, ORDER BY, GROUP BY, HAVING
