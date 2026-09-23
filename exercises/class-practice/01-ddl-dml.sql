@@ -1,6 +1,7 @@
 -- ============================================================
 -- CLASS PRACTICE: Employee Table / CRUD Operations
--- Date: [add date]
+-- DataBase: PostgresSQL
+-- Date: [23/09/2026]
 -- Description: Practice with CREATE, ALTER, INSERT, UPDATE,
 --              DELETE, SELECT, ORDER BY, GROUP BY, HAVING
 -- ============================================================
@@ -65,7 +66,7 @@ INSERT INTO empleados (nombre, cargo, salario, fecha_contratacion)
 VALUES ('Isabel', 'Analista Junior 1', 30000,'12-04-2025');
 
 INSERT INTO empleados (nombre, cargo, salario, fecha_contratacion)
-VALUES ('Carlos', 'Analista Junior 2', 30000,'15-03-2024');
+VALUES ('Carlos', 'Analista Junior 2', 30000, '2025-03-15');
 
 SELECT * FROM empleados;
 
@@ -113,22 +114,3 @@ GROUP BY cargo HAVING COUNT(*)>2;
 
 SELECT * FROM empleados;
 
---==========================
--- Practica, DESAFIO 1
---==========================
-INSERT INTO empleados (id, nombre, cargo, salario, fecha_contratacion)
-VALUES
-(8,'Pedro','Diseñador', 42000, '2025-08-15');
-
-SELECT * FROM empleados;
-
---==========================
--- Practica, DESAFIO 2
---==========================
-INSERT INTO empleados (id, nombre, cargo, salario, fecha_contratacion)
-VALUES
-(9,'Laura','Analista', 47000, '2026-08-15'),
-(10,'Pedro','Desarrollador', 39000, '2025-11-08'),
-(11,'Pedro','Gerente', 72000, '2023-06-20');
-
-SELECT * FROM empleados;

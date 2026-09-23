@@ -1,81 +1,73 @@
 -- ============================================================
--- CLASS PRACTICE: Consultas con dos tablas (Departamentos y Empleados)
--- Date: 01/09/2026
--- Description: Solución a las consultas 4, 5, 6 y 7 empleando INNER JOIN, 
---              funciones de agregación y formateo de datos.
+-- CLASS PRACTICE: Tabla Departamentos / CRUD Operations
+-- DataBase: PostgresSQL
+-- Date: [23/09/2026]
+-- Description: Practice with CREATE, ALTER, INSERT, UPDATE,
+--              DELETE, SELECT, ORDER BY, GROUP BY, HAVING
 -- ============================================================
 
 --==========================
--- Consulta 4.
--- Departamento con mayor salario promedio
+-- Creación de la tabla "Departamentos"
 --==========================
-SELECT
-    d.nombre AS departamento,
-    ROUND(AVG(e.salario), 2) AS salario_promedio
-FROM empleados e
-INNER JOIN departamentos d
-    ON e.id_departamento = d.id_departamento
-GROUP BY d.nombre
-ORDER BY salario_promedio DESC;
+
+CREATE TABLE departamentos (
+    id_departamento SERIAL PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
+    ubicacion VARCHAR(50) NOT NULL,
+    presupuesto DECIMAL(12,2) NOT NULL
+);
+
+--==========================
+-- Establecer vínculos entre tablas
+-- La cual deberá crear la llave foránea en la tabla "Empleados"
+--==========================
+-- PASO 1:
+ALTER TABLE empleados
+ADD COLUMN id_departamento INTEGER;
+
+-- PASO 2:
+ALTER TABLE empleados
+ADD CONSTRAINT fk_empleado_departamento
+FOREIGN KEY (id_departamento)
+REFERENCES departamentos(id_departamento);
 
 
 --==========================
--- Consulta 5.
--- Empleados por departamento contratados desde el 2024
+-- Insertar datos a la tabla de Departamentos
 --==========================
-SELECT
-    e.nombre,
-    e.fecha_contratacion,
-    d.nombre AS departamento
-FROM empleados e
-INNER JOIN departamentos d
-    ON e.id_departamento = d.id_departamento
-WHERE e.fecha_contratacion >= '2024-01-01';
+INSERT INTO departamentos (nombre, ubicacion, presupuesto)
+VALUES 
+('Desarrollo de Software', 'Cali', 85000000),
+('Análisis y Diseño', 'Palmira', 60000000),
+('Pruebas de Software', 'Cali', 45000000),
+('Base de Datos', 'Bogotá', 55000000),
+('Soporte Técnico', 'Palmira', 35000000);
+SELECT * FROM departamentos;
 
-
---==========================
--- Consulta 6.
--- Presupuesto y suma de los salarios por departamento
---==========================
-SELECT
-    d.nombre,
-    d.presupuesto,
-    SUM(e.salario) AS total_salarios
-FROM departamentos d
-INNER JOIN empleados e
-    ON d.id_departamento = e.id_departamento
-GROUP BY d.nombre, d.presupuesto
-ORDER BY total_salarios DESC;
-
+-- Ya se tiene el vinculo estructural entre tablas
 
 --==========================
--- Consulta 7.
--- Presupuesto y suma de los salarios por departamento y % de ejecución presupuestal
+-- Asignación de datos que consolida el vinculo mediante datos
 --==========================
-SELECT
-    d.nombre,
-    d.presupuesto,
-    SUM(e.salario) AS total_salarios,
-    ROUND((SUM(e.salario) / d.presupuesto) * 100, 2) AS porcentaje_ejecución_presupuestal
-FROM departamentos d
-INNER JOIN empleados e
-    ON d.id_departamento = e.id_departamento
-GROUP BY d.nombre, d.presupuesto
-ORDER BY porcentaje_ejecución_presupuestal DESC;
+-- 1. Que en el departamento 1 queden asociados los empleados 1,2 y 3.
+UPDATE empleados
+SET id_departamento = 1 WHERE id IN (1, 2, 3);
 
+-- 2. Que en el departamento 2 queden trabajando los empleados 4 y 5.
+UPDATE empleados
+SET id_departamento = 2 WHERE id IN (4, 5);
 
---==========================
--- Consulta 7 (Con formato).
--- Presupuesto y suma de los salarios por departamento y % de ejecución
--- presupuestal, ESTA VEZ CON FORMATO DE MONEDA, SEPARADORES DE MILES Y FORMATO PORCENTAJE
---==========================
-SELECT 
-    d.nombre AS departamento,
-    TO_CHAR(d.presupuesto,'FM$999G999G999G999') AS presupuesto,
-    TO_CHAR(SUM(e.salario), 'FM$999G999G999G999') AS total_salarios,
-    TO_CHAR((SUM(e.salario)/d.presupuesto)*100,'FM990.00"%"') AS porcentaje_ejecucion_presupuestal
-FROM departamentos d
-INNER JOIN empleados e 
-    ON d.id_departamento = e.id_departamento
-GROUP BY d.presupuesto, d.nombre
-ORDER BY total_salarios DESC;
+-- 3. Que en el departamento 3 queden trabajando los empleados 6 y 7.
+UPDATE empleados
+SET id_departamento = 3 WHERE id IN (6, 7);
+
+-- 4. Que en el departamento 4 queden trabajando los empleados 8 y 9.
+UPDATE empleados
+SET id_departamento = 4 WHERE id IN (8, 9);
+
+-- 5. Finalmente, que en el departamento 5 queden trabajando los empleados 10 y 11.
+UPDATE empleados
+SET id_departamento = 5 WHERE id IN (10, 11);
+
+-- Veficacion de datos en la otra tabla
+SELECT * FROM empleados;
