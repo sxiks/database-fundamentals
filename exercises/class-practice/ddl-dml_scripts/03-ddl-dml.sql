@@ -42,7 +42,12 @@ VALUES
 ('Pruebas de Software', 'Cali', 45000000),
 ('Base de Datos', 'Bogotá', 55000000),
 ('Soporte Técnico', 'Palmira', 35000000);
-SELECT * FROM departamentos;
+SELECT * FROM departSELECT c.nombre, COUNT(p.id) AS pedidos
+FROM clientes c
+LEFT JOIN pedidos p ON p.cliente_id = c.id
+GROUP BY c.id, c.nombre
+ORDER BY pedidos ASC, c.nombre
+LIMIT 5;amentos;
 
 -- Ya se tiene el vinculo estructural entre tablas
 

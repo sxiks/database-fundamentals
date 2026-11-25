@@ -66,7 +66,7 @@ SELECT -- ============================================================
 -- Consulta 1.
 -- Mostrar empleados y su departamento
 --==========================
-SELECT
+SELECTs
     e.nombre,
     e.cargo,
     d.nombre AS departamento 
